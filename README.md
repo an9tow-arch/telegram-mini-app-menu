@@ -1,3 +1,7 @@
+
+## 📝 **Исправленный README.md:**
+
+```markdown
 # Telegram Mini App Menu 🚀
 
 Простой и понятный интерфейс меню для Telegram Mini Apps.
