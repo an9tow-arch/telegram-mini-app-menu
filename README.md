@@ -1,11 +1,13 @@
-# Создаём README файл
-echo "# Telegram Mini App Menu" > README.md
+# Telegram Mini App Menu
 
-# Создаём HTML файл
-touch index.html
+Простое меню для Telegram Mini App на HTML, CSS и JavaScript.
 
-# Создаём CSS файл
-touch style.css
+## ✨ Особенности
+- Адаптивный дизайн
+- Анимации при наведении
+- Работает в Telegram Web App
 
-# Создаём JS файл
-touch script.js
+## 🚀 Быстрый старт
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/ваш-логин/telegram-mini-app-menu.git
