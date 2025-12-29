@@ -19,7 +19,7 @@
     }
 
     .hook {
-      padding: 20px 20px 16px;
+      padding: 20px;
       text-align: center;
       flex-shrink: 0;
     }
@@ -27,9 +27,7 @@
     .hook h1 {
       font-size: 22px;
       font-weight: 700;
-      line-height: 1.3;
       margin: 0 0 8px 0;
-      color: var(--tg-theme-text-color);
     }
 
     .hook p {
@@ -37,7 +35,6 @@
       color: var(--tg-theme-hint-color);
       margin: 0;
       line-height: 1.5;
-      opacity: 0.9;
     }
 
     .grid {
@@ -65,7 +62,6 @@
 
     .btn:active {
       transform: scale(0.96);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     @media (hover: hover) {
@@ -86,13 +82,10 @@
       text-align: center;
     }
 
-    /* Адаптация для маленьких экранов */
     @media (max-height: 600px) {
-      .hook { padding: 16px 16px 12px; }
+      .hook { padding: 16px; }
       .hook h1 { font-size: 20px; }
-      .hook p { font-size: 14px; }
-      .grid { padding: 8px; gap: 10px; }
-      .btn { padding: 20px 12px; }
+      .grid { gap: 10px; padding: 8px; }
       .emoji { font-size: 36px; }
       .label { font-size: 16px; }
     }
@@ -101,26 +94,30 @@
 <body>
   <div class="hook">
     <h1>an9tov hub</h1>
-    <p>Заметки, промты, решения и всё полезное — без воды и пафоса</p>
+    <p>Заметки, промты, решения — всё в одном месте. Без воды.</p>
   </div>
 
   <div class="grid">
-    <a href="navigation.html" class="btn">
+    <!-- Навигация -->
+    <a href="interesnoe.html" class="btn">
       <div class="emoji">🧭</div>
       <div class="label">Навигация</div>
     </a>
 
-    <a href="problems.html" class="btn">
+    <!-- Проблемы, решения -->
+    <a href="nakipelo.html" class="btn">
       <div class="emoji">🔧</div>
       <div class="label">Проблемы, решения</div>
     </a>
 
-    <a href="prompts.html" class="btn">
+    <!-- Промты, проверены -->
+    <a href="marshruty.html" class="btn">
       <div class="emoji">💡</div>
       <div class="label">Промты, проверены</div>
     </a>
 
-    <a href="misc.html" class="btn">
+    <!-- Разное, полезное -->
+    <a href="news.html" class="btn">
       <div class="emoji">📌</div>
       <div class="label">Разное, полезное</div>
     </a>
@@ -131,9 +128,6 @@
     tg.ready();
     tg.expand();
     tg.disableVerticalSwipes();
-
-    // Фон под тему Telegram (можно убрать, если не нужно)
-    // tg.setBackgroundColor('secondary_bg_color'); // использует вторичный фон темы
   </script>
 </body>
 </html>
