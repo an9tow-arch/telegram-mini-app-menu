@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>an9tov hub</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="styles.css">
+
   <style>
-    /* Специфичные стили только для главной страницы */
     body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--tg-theme-bg-color);
+      color: var(--tg-theme-text-color);
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      height: 100vh;
       overflow: hidden;
     }
 
     .hook {
-      padding: 18px 20px 14px;
+      padding: 20px 20px 16px;
       text-align: center;
-      background: rgba(0,0,0,0.3);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #222;
-      z-index: 10;
       flex-shrink: 0;
     }
 
@@ -28,20 +28,16 @@
       font-size: 22px;
       font-weight: 700;
       line-height: 1.3;
-      margin-bottom: 6px;
-      background: linear-gradient(90deg, #fff, #aaa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      margin: 0 0 8px 0;
+      color: var(--tg-theme-text-color);
     }
 
     .hook p {
       font-size: 15px;
-      color: #bbb;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
+      color: var(--tg-theme-hint-color);
+      margin: 0;
       line-height: 1.5;
+      opacity: 0.9;
     }
 
     .grid {
@@ -49,129 +45,95 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 2px;
-      width: 100%;
-      height: 100%;
+      gap: 12px;
+      padding: 12px;
     }
 
     .btn {
+      background: var(--tg-theme-secondary-bg-color);
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       text-decoration: none;
-      color: white;
-      border-radius: 0;
-      padding: 20px 12px 26px;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(145deg, #222, #111);
-      box-shadow:
-        inset 0 -3px 0 rgba(0,0,0,0.3),
-        0 1px 3px rgba(0,0,0,0.5);
-      transition: all 0.2s;
-    }
-
-    .btn:nth-child(1) { background: linear-gradient(145deg, #1a237e, #0d47a1); } /* Синий */
-    .btn:nth-child(2) { background: linear-gradient(145deg, #b71c1c, #c62828); } /* Красный */
-    .btn:nth-child(3) { background: linear-gradient(145deg, #1b5e20, #2e7d32); } /* Зеленый */
-    .btn:nth-child(4) { background: linear-gradient(145deg, #4a148c, #6a1b9a); } /* Фиолетовый */
-
-    .btn-inner {
-      z-index: 2;
-      text-align: center;
+      color: var(--tg-theme-text-color);
+      padding: 24px 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .btn:active {
-      transform: scale(0.985);
-      box-shadow:
-        inset 0 -1px 0 rgba(0,0,0,0.2),
-        0 1px 2px rgba(0,0,0,0.3);
+      transform: scale(0.96);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    @media (hover: hover) {
+      .btn:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      }
     }
 
     .emoji {
-      font-size: 32px;
-      margin-bottom: 10px;
-      display: block;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
     .label {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      text-align: center;
     }
 
-    @media (max-height: 540px) {
-      .hook { padding: 12px 16px 8px; }
-      .hook h1 { font-size: 19px; }
+    /* Адаптация для маленьких экранов */
+    @media (max-height: 600px) {
+      .hook { padding: 16px 16px 12px; }
+      .hook h1 { font-size: 20px; }
       .hook p { font-size: 14px; }
-      .btn { padding: 16px 10px 22px; }
-      .emoji { font-size: 28px; }
+      .grid { padding: 8px; gap: 10px; }
+      .btn { padding: 20px 12px; }
+      .emoji { font-size: 36px; }
       .label { font-size: 16px; }
-    }
-
-    /* Анимация при наведении (для десктопа) */
-    @media (hover: hover) {
-      .btn:hover {
-        transform: scale(1.02);
-        filter: brightness(1.1);
-      }
     }
   </style>
 </head>
 <body>
   <div class="hook">
-    <h1>Я не блогер. Я просто записываю, чтобы не забыть — и делюсь</h1>
-    <p>Здесь — заметки, маршруты и мысли без пафоса. Всё проверено дорогой и временем.</p>
+    <h1>an9tov hub</h1>
+    <p>Заметки, промты, решения и всё полезное — без воды и пафоса</p>
   </div>
 
   <div class="grid">
-    <a href="interesnoe.html" class="btn">
-      <div class="btn-inner">
-        <div class="emoji">🔍</div>
-        <div class="label">Интересное</div>
-      </div>
+    <a href="navigation.html" class="btn">
+      <div class="emoji">🧭</div>
+      <div class="label">Навигация</div>
     </a>
-    <a href="nakipelo.html" class="btn">
-      <div class="btn-inner">
-        <div class="emoji">💬</div>
-        <div class="label">Накипело</div>
-      </div>
+
+    <a href="problems.html" class="btn">
+      <div class="emoji">🔧</div>
+      <div class="label">Проблемы, решения</div>
     </a>
-    <a href="marshruty.html" class="btn">
-      <div class="btn-inner">
-        <div class="emoji">🗺</div>
-        <div class="label">Маршруты</div>
-      </div>
+
+    <a href="prompts.html" class="btn">
+      <div class="emoji">💡</div>
+      <div class="label">Промты, проверены</div>
     </a>
-    <a href="news.html" class="btn">
-      <div class="btn-inner">
-        <div class="emoji">📰</div>
-        <div class="label">Новости</div>
-      </div>
+
+    <a href="misc.html" class="btn">
+      <div class="emoji">📌</div>
+      <div class="label">Разное, полезное</div>
     </a>
   </div>
 
   <script>
-    // Инициализация Telegram Web App
-    Telegram.WebApp.ready();
-    Telegram.WebApp.expand();
-    Telegram.WebApp.disableVerticalSwipes();
-    
-    // Меняем цвет фона Telegram
-    Telegram.WebApp.setBackgroundColor('#0a0a0a');
-    
-    // Добавляем обработчики для кнопок
-    document.querySelectorAll('.btn').forEach(button => {
-      button.addEventListener('click', function(e) {
-        // Можно добавить анимацию нажатия
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          this.style.transform = '';
-        }, 150);
-      });
-    });
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+    tg.disableVerticalSwipes();
+
+    // Фон под тему Telegram (можно убрать, если не нужно)
+    // tg.setBackgroundColor('secondary_bg_color'); // использует вторичный фон темы
   </script>
 </body>
 </html>
